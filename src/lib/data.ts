@@ -124,6 +124,7 @@ export const properties: Property[] = [
     features: ["Havuz", "Fitness", "Otopark", "Güvenlik", "Metro Yakını", "Eşyalı"],
     consultant: consultants[1],
     paymentMode: "talep",
+    ctaMode: "request_then_pay",
     isOwned: false,
   },
   {
