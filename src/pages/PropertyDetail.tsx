@@ -114,7 +114,7 @@ const PropertyDetail = () => {
               {/* CTA based on ctaMode */}
               {property.ctaMode === "pay_now" && (
                 <Link
-                  to="/iletisim"
+                  to={`/portfoy/${property.id}/odeme`}
                   className="block w-full bg-gradient-gold text-accent-foreground py-3 rounded font-semibold text-sm text-center hover:opacity-90 transition-opacity mb-3"
                 >
                   Şimdi Öde / Kapora
@@ -122,7 +122,7 @@ const PropertyDetail = () => {
               )}
               {property.ctaMode === "request_then_pay" && (
                 <Link
-                  to="/iletisim"
+                  to={`/portfoy/${property.id}/odeme`}
                   className="block w-full bg-gradient-gold text-accent-foreground py-3 rounded font-semibold text-sm text-center hover:opacity-90 transition-opacity mb-3"
                 >
                   Talep Gönder
