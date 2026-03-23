@@ -99,6 +99,7 @@ export const properties: Property[] = [
     features: ["Boğaz Manzarası", "Özel Teras", "Jakuzi", "Akıllı Ev", "Otopark", "7/24 Güvenlik"],
     consultant: consultants[0],
     paymentMode: "kapora",
+    ctaMode: "pay_now",
     investmentNotes: "Bölgedeki kira artış oranı yıllık %35 üzerindedir.",
     estimatedReturn: "%8-10 yıllık getiri",
     isOwned: true,
