@@ -111,12 +111,28 @@ const PropertyDetail = () => {
                 <p className="text-sm font-semibold text-foreground">{paymentModeLabels[property.paymentMode]}</p>
               </div>
 
-              <Link
-                to="/iletisim"
-                className="block w-full bg-gradient-gold text-accent-foreground py-3 rounded font-semibold text-sm text-center hover:opacity-90 transition-opacity mb-3"
-              >
-                {property.paymentMode === "kapora" ? "Kapora Öde / Başvur" : "Talep Bırak"}
-              </Link>
+              {/* CTA based on ctaMode */}
+              {property.ctaMode === "pay_now" && (
+                <Link
+                  to="/iletisim"
+                  className="block w-full bg-gradient-gold text-accent-foreground py-3 rounded font-semibold text-sm text-center hover:opacity-90 transition-opacity mb-3"
+                >
+                  Şimdi Öde / Kapora
+                </Link>
+              )}
+              {property.ctaMode === "request_then_pay" && (
+                <Link
+                  to="/iletisim"
+                  className="block w-full bg-gradient-gold text-accent-foreground py-3 rounded font-semibold text-sm text-center hover:opacity-90 transition-opacity mb-3"
+                >
+                  Talep Gönder
+                </Link>
+              )}
+              {property.ctaMode === "hidden" && (
+                <div className="bg-secondary rounded p-3 mb-3 text-center">
+                  <p className="text-sm text-muted-foreground">Bu ilan için bilgi alabilirsiniz</p>
+                </div>
+              )}
 
               {/* Consultant mini card */}
               <div className="border-t border-border pt-5 mt-5">
