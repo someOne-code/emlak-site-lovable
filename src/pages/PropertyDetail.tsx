@@ -91,6 +91,20 @@ const PropertyDetail = () => {
                   )}
                 </div>
               )}
+
+              {/* Map */}
+              <div>
+                <h3 className="font-heading text-lg font-semibold mb-3 flex items-center gap-2">
+                  <MapPin size={18} className="text-gold" /> Konum
+                </h3>
+                <PropertyMap
+                  properties={[property]}
+                  single
+                  center={[property.lat, property.lng]}
+                  zoom={15}
+                  className="h-[300px]"
+                />
+              </div>
             </div>
           </div>
 
