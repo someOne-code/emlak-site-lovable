@@ -147,6 +147,7 @@ export const properties: Property[] = [
     features: ["Havuz", "Site İçi", "Otopark", "Güvenlik", "Çocuk Parkı", "Metro Yakını"],
     consultant: consultants[2],
     paymentMode: "bilgi",
+    ctaMode: "hidden",
     investmentNotes: "Yeni havalimanı ve metro bağlantısı ile bölgenin değeri hızla artmaktadır.",
     estimatedReturn: "%12-15 yıllık değer artışı",
     isOwned: true,
