@@ -172,6 +172,7 @@ export const properties: Property[] = [
     features: ["Deniz Manzarası", "Dublex", "Balkon", "Otopark", "Güvenlik", "Eşyalı"],
     consultant: consultants[3],
     paymentMode: "kapora",
+    ctaMode: "pay_now",
     isOwned: true,
   },
   {
