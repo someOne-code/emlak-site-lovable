@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Maximize, BedDouble, Building, Check, MessageSquare } from "lucide-react";
 import { properties } from "@/lib/data";
 import { useState } from "react";
-
+import PropertyMap from "@/components/PropertyMap";
 const paymentModeLabels: Record<string, string> = {
   talep: "Talep Bırakın",
   kapora: "Online Ödeme / Kapora",
@@ -91,6 +91,20 @@ const PropertyDetail = () => {
                   )}
                 </div>
               )}
+
+              {/* Map */}
+              <div>
+                <h3 className="font-heading text-lg font-semibold mb-3 flex items-center gap-2">
+                  <MapPin size={18} className="text-gold" /> Konum
+                </h3>
+                <PropertyMap
+                  properties={[property]}
+                  single
+                  center={[property.lat, property.lng]}
+                  zoom={15}
+                  className="h-[300px]"
+                />
+              </div>
             </div>
           </div>
 
