@@ -79,28 +79,11 @@ const Checkout = () => {
     );
   }
 
-  const toggleAddOn = (id: string) => {
+  const toggleAddOn = (addonId: string) => {
     setSelectedAddOns((prev) =>
-      prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id]
+      prev.includes(addonId) ? prev.filter((a) => a !== addonId) : [...prev, addonId]
     );
   };
-
-  const serviceFee = Math.round(property.price * 0.15);
-  
-  const baseAmount = useMemo(() => {
-    if (paymentType === "reservation") {
-      return Math.round(property.price * 0.5);
-    }
-    return property.price + serviceFee;
-  }, [paymentType, property.price, serviceFee]);
-
-  const addOnsTotal = useMemo(() => {
-    return addOns
-      .filter((a) => selectedAddOns.includes(a.id))
-      .reduce((sum, a) => sum + a.price, 0);
-  }, [selectedAddOns]);
-
-  const totalAmount = baseAmount + addOnsTotal;
 
   const handleProceed = () => {
     // Demo: In production, this would redirect to Turkish bank's hosted payment page
