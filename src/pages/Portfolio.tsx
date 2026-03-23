@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { properties } from "@/lib/data";
 import PropertyCard from "@/components/PropertyCard";
+import PropertyMap from "@/components/PropertyMap";
 import PageHero from "@/components/PageHero";
+import { Map, List } from "lucide-react";
 
 const types = [
   { value: "all", label: "Tümü" },
@@ -20,6 +22,8 @@ const categories = [
 const Portfolio = () => {
   const [type, setType] = useState("all");
   const [category, setCategory] = useState("all");
+  const [showMap, setShowMap] = useState(true);
+  const [hoveredId, setHoveredId] = useState<string | undefined>();
 
   const filtered = properties.filter((p) => {
     if (type !== "all" && p.type !== type) return false;
@@ -29,49 +33,75 @@ const Portfolio = () => {
 
   return (
     <main>
-      <PageHero title="Portföyümüz" subtitle="Özenle seçilmiş gayrimenkul portföyümüzü keşfedin" />
+      <PageHero title="Portföyümüz" subtitle="Kayseri'nin en prestijli lokasyonlarında özenle seçilmiş gayrimenkul portföyümüzü keşfedin" />
 
       <section className="section-padding bg-background">
         <div className="container-narrow">
           {/* Filters */}
-          <div className="flex flex-col md:flex-row gap-4 mb-10">
-            <div className="flex flex-wrap gap-2">
-              {types.map((t) => (
-                <button
-                  key={t.value}
-                  onClick={() => setType(t.value)}
-                  className={`px-4 py-2 rounded text-sm font-medium transition-all ${
-                    type === t.value
-                      ? "bg-gradient-gold text-accent-foreground"
-                      : "bg-secondary text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {t.label}
-                </button>
-              ))}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-wrap gap-2">
+                {types.map((t) => (
+                  <button
+                    key={t.value}
+                    onClick={() => setType(t.value)}
+                    className={`px-4 py-2 rounded text-sm font-medium transition-all ${
+                      type === t.value
+                        ? "bg-gradient-gold text-accent-foreground"
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((c) => (
+                  <button
+                    key={c.value}
+                    onClick={() => setCategory(c.value)}
+                    className={`px-4 py-2 rounded text-sm font-medium transition-all ${
+                      category === c.value
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {c.label}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((c) => (
-                <button
-                  key={c.value}
-                  onClick={() => setCategory(c.value)}
-                  className={`px-4 py-2 rounded text-sm font-medium transition-all ${
-                    category === c.value
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {c.label}
-                </button>
-              ))}
-            </div>
+            <button
+              onClick={() => setShowMap(!showMap)}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium bg-secondary text-muted-foreground hover:text-foreground transition-all"
+            >
+              {showMap ? <List size={16} /> : <Map size={16} />}
+              {showMap ? "Liste Görünümü" : "Harita Görünümü"}
+            </button>
           </div>
+
+          {/* Map */}
+          {showMap && filtered.length > 0 && (
+            <div className="mb-8">
+              <PropertyMap
+                properties={filtered}
+                selectedId={hoveredId}
+                className="h-[400px]"
+              />
+            </div>
+          )}
 
           {/* Results */}
           <p className="text-sm text-muted-foreground mb-6">{filtered.length} ilan bulundu</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((property) => (
-              <PropertyCard key={property.id} property={property} />
+              <div
+                key={property.id}
+                onMouseEnter={() => setHoveredId(property.id)}
+                onMouseLeave={() => setHoveredId(undefined)}
+              >
+                <PropertyCard property={property} />
+              </div>
             ))}
           </div>
           {filtered.length === 0 && (

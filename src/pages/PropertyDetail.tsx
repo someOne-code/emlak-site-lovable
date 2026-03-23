@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Maximize, BedDouble, Building, Check, MessageSquare } from "lucide-react";
 import { properties } from "@/lib/data";
 import { useState } from "react";
-
+import PropertyMap from "@/components/PropertyMap";
 const paymentModeLabels: Record<string, string> = {
   talep: "Talep Bırakın",
   kapora: "Online Ödeme / Kapora",
