@@ -218,6 +218,7 @@ export const properties: Property[] = [
     features: ["Özel Bahçe", "Orman Manzarası", "Havuz", "Otopark", "Güvenlik", "Eşyalı"],
     consultant: consultants[0],
     paymentMode: "kapora",
+    ctaMode: "pay_now",
     investmentNotes: "Sarıyer bölgesinde lüks villa talebi sürekli artmaktadır.",
     estimatedReturn: "%6-8 yıllık getiri",
     isOwned: true,

@@ -9,6 +9,7 @@ const navItems = [
   { label: "Hizmetler", path: "/hizmetler" },
   { label: "Danışmanlarımız", path: "/danismanlar" },
   { label: "Hakkımızda", path: "/hakkimizda" },
+  { label: "Blog", path: "/blog" },
   { label: "İletişim", path: "/iletisim" },
 ];
 
