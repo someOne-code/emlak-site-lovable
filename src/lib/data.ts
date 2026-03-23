@@ -23,6 +23,7 @@ export interface Property {
   features: string[];
   consultant: Consultant;
   paymentMode: "talep" | "kapora" | "bilgi";
+  ctaMode: "pay_now" | "request_then_pay" | "hidden";
   investmentNotes?: string;
   estimatedReturn?: string;
   isOwned: boolean;
@@ -98,6 +99,7 @@ export const properties: Property[] = [
     features: ["Boğaz Manzarası", "Özel Teras", "Jakuzi", "Akıllı Ev", "Otopark", "7/24 Güvenlik"],
     consultant: consultants[0],
     paymentMode: "kapora",
+    ctaMode: "pay_now",
     investmentNotes: "Bölgedeki kira artış oranı yıllık %35 üzerindedir.",
     estimatedReturn: "%8-10 yıllık getiri",
     isOwned: true,
@@ -122,6 +124,7 @@ export const properties: Property[] = [
     features: ["Havuz", "Fitness", "Otopark", "Güvenlik", "Metro Yakını", "Eşyalı"],
     consultant: consultants[1],
     paymentMode: "talep",
+    ctaMode: "request_then_pay",
     isOwned: false,
   },
   {
@@ -144,6 +147,7 @@ export const properties: Property[] = [
     features: ["Havuz", "Site İçi", "Otopark", "Güvenlik", "Çocuk Parkı", "Metro Yakını"],
     consultant: consultants[2],
     paymentMode: "bilgi",
+    ctaMode: "hidden",
     investmentNotes: "Yeni havalimanı ve metro bağlantısı ile bölgenin değeri hızla artmaktadır.",
     estimatedReturn: "%12-15 yıllık değer artışı",
     isOwned: true,
@@ -168,6 +172,7 @@ export const properties: Property[] = [
     features: ["Deniz Manzarası", "Dublex", "Balkon", "Otopark", "Güvenlik", "Eşyalı"],
     consultant: consultants[3],
     paymentMode: "kapora",
+    ctaMode: "pay_now",
     isOwned: true,
   },
   {
@@ -190,6 +195,7 @@ export const properties: Property[] = [
     features: ["Merkezi Konum", "Metro Yakını", "Eşyalı", "Güvenlik", "Asansör"],
     consultant: consultants[1],
     paymentMode: "talep",
+    ctaMode: "request_then_pay",
     isOwned: false,
   },
   {
@@ -212,6 +218,7 @@ export const properties: Property[] = [
     features: ["Özel Bahçe", "Orman Manzarası", "Havuz", "Otopark", "Güvenlik", "Eşyalı"],
     consultant: consultants[0],
     paymentMode: "kapora",
+    ctaMode: "pay_now",
     investmentNotes: "Sarıyer bölgesinde lüks villa talebi sürekli artmaktadır.",
     estimatedReturn: "%6-8 yıllık getiri",
     isOwned: true,

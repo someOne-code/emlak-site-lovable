@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Building, TrendingUp, Shield, Users } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { properties, services } from "@/lib/data";
+import { blogPosts } from "@/lib/blog-data";
 import PropertyCard from "@/components/PropertyCard";
+import BlogCard from "@/components/BlogCard";
 
 const iconMap: Record<string, React.ReactNode> = {
   Home: <Building size={28} />,
@@ -114,6 +116,33 @@ const Index = () => (
               <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Blog */}
+    <section className="section-padding bg-background">
+      <div className="container-narrow">
+        <div className="text-center mb-12">
+          <p className="text-gold text-sm font-semibold tracking-[0.15em] uppercase mb-2">
+            Blog & İçerikler
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+            Uzman Görüşleri
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {blogPosts.slice(0, 3).map((post) => (
+            <BlogCard key={post.id} post={post} />
+          ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-gold font-semibold text-sm hover:opacity-80 transition-opacity"
+          >
+            Tüm Yazıları Gör <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>
