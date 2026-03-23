@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Building, TrendingUp, Shield, Users } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { properties, services } from "@/lib/data";
+import { blogPosts } from "@/lib/blog-data";
 import PropertyCard from "@/components/PropertyCard";
+import BlogCard from "@/components/BlogCard";
 
 const iconMap: Record<string, React.ReactNode> = {
   Home: <Building size={28} />,
