@@ -27,6 +27,8 @@ export interface Property {
   investmentNotes?: string;
   estimatedReturn?: string;
   isOwned: boolean;
+  lat: number;
+  lng: number;
 }
 
 export interface Consultant {
