@@ -23,6 +23,7 @@ export interface Property {
   features: string[];
   consultant: Consultant;
   paymentMode: "talep" | "kapora" | "bilgi";
+  ctaMode: "pay_now" | "request_then_pay" | "hidden";
   investmentNotes?: string;
   estimatedReturn?: string;
   isOwned: boolean;
