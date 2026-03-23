@@ -52,6 +52,24 @@ const Checkout = () => {
   const [paymentType, setPaymentType] = useState<PaymentType>("reservation");
   const [agreed, setAgreed] = useState(false);
 
+  const serviceFee = Math.round((property?.price ?? 0) * 0.15);
+  
+  const baseAmount = useMemo(() => {
+    if (!property) return 0;
+    if (paymentType === "reservation") {
+      return Math.round(property.price * 0.5);
+    }
+    return property.price + serviceFee;
+  }, [paymentType, property, serviceFee]);
+
+  const addOnsTotal = useMemo(() => {
+    return addOns
+      .filter((a) => selectedAddOns.includes(a.id))
+      .reduce((sum, a) => sum + a.price, 0);
+  }, [selectedAddOns]);
+
+  const totalAmount = baseAmount + addOnsTotal;
+
   if (!property) {
     return (
       <main className="pt-28 section-padding text-center">

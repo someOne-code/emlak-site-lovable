@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Index from "./pages/Index.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
 import PropertyDetail from "./pages/PropertyDetail.tsx";
+import Checkout from "./pages/Checkout.tsx";
 import Services from "./pages/Services.tsx";
 import Consultants from "./pages/Consultants.tsx";
 import About from "./pages/About.tsx";
