@@ -8,7 +8,7 @@ import { Map, List } from "lucide-react";
 const types = [
   { value: "all", label: "Tümü" },
   { value: "kiralik", label: "Kiralık" },
-  { value: "yatirim", label: "Yatırımlık" },
+  { value: "satilik", label: "Satılık" },
 ];
 
 const categories = [
