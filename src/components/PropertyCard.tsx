@@ -5,7 +5,6 @@ import type { Property } from "@/lib/data";
 const typeLabels: Record<string, string> = {
   kiralik: "Kiralık",
   satilik: "Satılık",
-  yatirim: "Yatırımlık",
 };
 
 const PropertyCard = ({ property }: { property: Property }) => (
@@ -19,15 +18,10 @@ const PropertyCard = ({ property }: { property: Property }) => (
         alt={property.title}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
-      <div className="absolute top-3 left-3 flex gap-2">
+      <div className="absolute top-3 left-3">
         <span className="bg-gradient-gold text-accent-foreground px-3 py-1 rounded text-xs font-semibold">
           {typeLabels[property.type]}
         </span>
-        {property.investmentNotes && (
-          <span className="bg-primary text-primary-foreground px-3 py-1 rounded text-xs font-semibold">
-            Yatırım
-          </span>
-        )}
       </div>
     </div>
     <div className="p-5">

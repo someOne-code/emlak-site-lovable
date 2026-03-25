@@ -11,7 +11,7 @@ export interface Property {
   price: number;
   currency: string;
   priceLabel: string;
-  type: "kiralik" | "satilik" | "yatirim";
+  type: "kiralik" | "satilik";
   category: "daire" | "residence" | "villa" | "penthouse";
   rooms: string;
   area: number;
@@ -141,7 +141,7 @@ export const properties: Property[] = [
     price: 22000,
     currency: "TL",
     priceLabel: "/ ay",
-    type: "yatirim",
+    type: "satilik",
     category: "daire",
     rooms: "3+1",
     area: 145,

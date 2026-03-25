@@ -134,18 +134,13 @@ const PropertyDetail = () => {
                   Şimdi Öde / Kapora
                 </Link>
               )}
-              {property.ctaMode === "request_then_pay" && (
+              {(property.ctaMode === "request_then_pay" || property.ctaMode === "hidden") && (
                 <Link
-                  to={`/portfoy/${property.id}/odeme`}
-                  className="block w-full bg-gradient-gold text-accent-foreground py-3 rounded font-semibold text-sm text-center hover:opacity-90 transition-opacity mb-3"
+                  to="/iletisim"
+                  className="block w-full border border-gold text-gold py-3 rounded font-semibold text-sm text-center hover:bg-gold/10 transition-colors mb-3"
                 >
-                  Talep Gönder
+                  <span className="inline-flex items-center gap-2"><MessageSquare size={16} /> İletişime Geçin</span>
                 </Link>
-              )}
-              {property.ctaMode === "hidden" && (
-                <div className="bg-secondary rounded p-3 mb-3 text-center">
-                  <p className="text-sm text-muted-foreground">Bu ilan için bilgi alabilirsiniz</p>
-                </div>
               )}
 
               {/* Consultant mini card */}
